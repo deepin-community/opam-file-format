@@ -1,0 +1,74 @@
+From 9d1fe4ae9f7b32779703cddf3b97dcc6ebcab623 Mon Sep 17 00:00:00 2001
+From: David Allsopp <david.allsopp@metastack.com>
+Date: Tue, 12 Jan 2021 11:33:18 +0000
+Subject: [PATCH] Test the make build system via Dune
+
+To allow CI to verify that it works.
+---
+ dune-project           |  2 +-
+ tests/legacy/Makefile  | 11 +++++++++++
+ tests/legacy/dune      |  8 ++++++++
+ tests/legacy/legacy.ml |  3 +++
+ tests/legacy/src/dune  |  3 +++
+ 5 files changed, 26 insertions(+), 1 deletion(-)
+ create mode 100644 tests/legacy/Makefile
+ create mode 100644 tests/legacy/dune
+ create mode 100644 tests/legacy/legacy.ml
+ create mode 100644 tests/legacy/src/dune
+
+diff --git a/dune-project b/dune-project
+index de4fc20..31a7429 100644
+--- a/dune-project
++++ b/dune-project
+@@ -1 +1 @@
+-(lang dune 1.0)
++(lang dune 1.3)
+diff --git a/tests/legacy/Makefile b/tests/legacy/Makefile
+new file mode 100644
+index 0000000..d190575
+--- /dev/null
++++ b/tests/legacy/Makefile
+@@ -0,0 +1,11 @@
++.PHONY: test
++test: legacy.byte legacy.native
++
++src/%:
++	$(MAKE) -C src $*
++
++legacy.byte: src/opam-file-format.cma legacy.ml
++	ocamlc -o $@ -I src $^
++
++legacy.native: src/opam-file-format.cmxa legacy.ml
++	ocamlopt -o $@ -I src $^
+diff --git a/tests/legacy/dune b/tests/legacy/dune
+new file mode 100644
+index 0000000..571edee
+--- /dev/null
++++ b/tests/legacy/dune
+@@ -0,0 +1,8 @@
++; This test (driven by Dune) ensures that the old build system works
++
++(copy_files ../../opam-file-format.opam)
++
++(alias
++  (name runtest)
++  (deps Makefile legacy.ml opam-file-format.opam (glob_files src/*))
++  (action (run make test)))
+diff --git a/tests/legacy/legacy.ml b/tests/legacy/legacy.ml
+new file mode 100644
+index 0000000..a9c9623
+--- /dev/null
++++ b/tests/legacy/legacy.ml
+@@ -0,0 +1,3 @@
++(* This "program" is used to verify that the library is linkable - see #40 *)
++let file = OpamParser.FullPos.file "../opam-file-format.opam"
++in Printf.printf "Successfully loaded %s\n" file.OpamParserTypes.FullPos.file_name
+diff --git a/tests/legacy/src/dune b/tests/legacy/src/dune
+new file mode 100644
+index 0000000..12cb12a
+--- /dev/null
++++ b/tests/legacy/src/dune
+@@ -0,0 +1,3 @@
++; We mustn't copy the dune file, but Dune's globbing has no syntax for that
++(copy_files ../../../src/o*)
++(copy_files ../../../src/M*)

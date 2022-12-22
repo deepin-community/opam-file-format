@@ -1,0 +1,25 @@
+#!/usr/bin/make -f
+
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+include /usr/share/ocaml/ocamlvars.mk
+
+DESTDIR=$(CURDIR)/debian/libopam-file-format-ocaml-dev
+export LIBDIR=/usr/lib/ocaml
+export OCAMLFIND_DESTDIR=$(DESTDIR)/$(OCAML_STDLIB_DIR)
+
+%:
+	dh $@ --with ocaml
+
+override_dh_auto_build:
+	$(MAKE) byte
+ifeq ($(OCAML_HAVE_OCAMLOPT),yes)
+	$(MAKE) native
+endif
+
+override_dh_auto_install:
+	mkdir -p "${OCAMLFIND_DESTDIR}"
+	ocamlfind install opam-file-format src/META
+	dh_auto_install
+
+override_dh_installchangelogs:
+	dh_installchangelogs CHANGES

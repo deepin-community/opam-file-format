@@ -1,0 +1,45 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: opam-file-format
+Source: https://github.com/ocaml/opam-file-format
+
+Files: *
+Copyright: Copyright (c) 2012-2020 OcamlPro <contact@ocamlpro.com>
+           Copyright (c) 2012      Inria
+License: LGPL-2.1 with linking exception
+ This program is free software; you can redistribute it and/or modify
+ it under the terms of the GNU Lesser General Public License as published by
+ the Free Software Foundation; either version 2.1, or (at your option)
+ any later version.
+ .
+ On Debian systems, the complete text of the GNU Lesser General Public
+ License version 2.1 can be found in ‘/usr/share/common-licenses/LGPL-2.1’.
+ .
+ As a special exception to the GNU Lesser General Public License, you
+ may link, statically or dynamically, a "work that uses the library"
+ with a publicly distributed version of the library to produce an
+ executable file containing portions of the library, and distribute
+ that executable file under terms of your choice, without any of the
+ additional requirements listed in clause 6 of the GNU Lesser General
+ Public License.  By "a publicly distributed version of the library",
+ we mean either the unmodified library as distributed by OCamlPro, or a
+ modified version of the library that is distributed under the
+ conditions defined in clause 2 of the GNU Lesser General Public
+ License.  This exception does not however invalidate any other reasons
+ why the executable file might be covered by the GNU Lesser General
+ Public License.
+
+
+Files: debian/*
+Copyright: Copyright (c) 2018-2020 nicoo <nicoo@debian.org>
+License: ISC
+ Permission to use, copy, modify, and/or distribute this software for any
+ purpose with or without fee is hereby granted, provided that the above
+ copyright notice and this permission notice appear in all copies.
+ .
+ THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+ WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+ MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+ ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+ WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION
+ OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN
+ CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.

@@ -1,0 +1,69 @@
+opam-file-format (2.1.2-2) unstable; urgency=medium
+
+  * Team upload
+  * Add two patches from upstream to fix build system and link libraries
+    in the correct order
+
+ -- Mehdi Dogguy <mehdi@debian.org>  Sun, 17 Jan 2021 11:09:39 +0100
+
+opam-file-format (2.1.2-1) unstable; urgency=medium
+
+  * Team upload
+  * New minor upstream release
+
+ -- Mehdi Dogguy <mehdi@debian.org>  Sat, 16 Jan 2021 18:45:38 +0100
+
+opam-file-format (2.1.1-1) unstable; urgency=medium
+
+  * New upstream release (2020-11-17)
+    + Add new types with more-complete positions
+    + Deprecate all old functions
+	  + Add a testsuite
+
+  * d/rules: Install upstream changelog
+  * d/patches: Backport missing change notes for v2.1.1
+
+  * Update maintainer's name and email address.
+  * d/copyright: Update authorship years
+  * d/changelog: Amend typo in v2.1.0-1 (dh compat 13, not 12)
+  * d/control: Declare compliance with policy v4.5.1.
+    No change required
+  * d/source: Ignore dotfiles from upstream
+
+ -- nicoo <nicoo@debian.org>  Mon, 30 Nov 2020 17:21:09 +0100
+
+opam-file-format (2.1.0-1) unstable; urgency=medium
+
+  * Team upload
+  * New upstream release
+  * Bump debhelper compat level to 13
+
+ -- Stéphane Glondu <glondu@debian.org>  Fri, 11 Sep 2020 10:55:59 +0200
+
+opam-file-format (2.0.0-2) unstable; urgency=medium
+
+  * Team upload
+  * Fix generation of ABIzed dependencies (Closes: #952373)
+  * Bump debhelper compat level to 12
+  * Bump Standards-Version to 4.5.0
+
+ -- Stéphane Glondu <glondu@debian.org>  Mon, 24 Feb 2020 07:23:18 +0100
+
+opam-file-format (2.0.0-1) unstable; urgency=medium
+
+  [nicoo]
+  * New upstream release (2018-08-01)
+  * debian/watch: Fix filename mangle
+  * debian/control: Comply with policy 4.1.5, set Rules-Requires-Root to no
+
+  [Meddhi Dogguy]
+  * Move the packaging repository to salsa.d.o
+  * Use a secure Format URL in debian/copyright
+
+ -- nicoo <nicoo@debian.org>  Thu, 02 Aug 2018 22:24:18 +0800
+
+opam-file-format (2.0.0~rc2-1) unstable; urgency=medium
+
+  * Initial packaging (Closes: #892416)
+
+ -- nicoo <nicoo@debian.org>  Sun, 15 Apr 2018 12:39:47 +0200
